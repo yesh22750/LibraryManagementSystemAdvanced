@@ -1,0 +1,12 @@
+target/
+bin/
+.idea/
+*.iml
+.vscode/
+.env
+*.log
+*.class
+.DS_Store
+node_modules/
+full-error.txt
+startup-error.txt

@@ -1,0 +1,182 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Library Management System</title>
+
+```
+<link rel="stylesheet" href="css/style.css">
+```
+
+</head>
+
+<body>
+
+<header class="topbar">
+    <div>
+        <h1>📚 Library Management System</h1>
+        <p>Manage books, users, issues and returns</p>
+    </div>
+
+```
+<span id="apiStatus" class="status">Checking API...</span>
+```
+
+</header>
+
+<nav class="navbar">
+    <button onclick="showSection('dashboard')">🏠 Dashboard</button>
+    <button onclick="showSection('booksSection')">📚 Books</button>
+    <button onclick="showSection('usersSection')">👥 Users</button>
+    <button onclick="showSection('issueSection')">📖 Issue Book</button>
+    <button onclick="showSection('returnSection')">↩️ Return Book</button>
+    <button onclick="showSection('transactionsSection')">📋 Transactions</button>
+</nav>
+
+<main>
+
+```
+<!-- DASHBOARD -->
+<section id="dashboard" class="section active">
+
+    <div class="hero">
+        <div>
+            <h2>Smart Library Dashboard</h2>
+            <p>Books, users, availability and transactions in one place.</p>
+        </div>
+
+        <input
+            id="search"
+            type="text"
+            placeholder="Search books..."
+            oninput="loadBooks()"
+        >
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+            <b id="bookCount">0</b>
+            <span>Books</span>
+        </div>
+
+        <div class="card">
+            <b id="availableCount">0</b>
+            <span>Available Copies</span>
+        </div>
+
+        <div class="card">
+            <b id="userCount">0</b>
+            <span>Users</span>
+        </div>
+
+        <div class="card">
+            <b id="transactionCount">0</b>
+            <span>Transactions</span>
+        </div>
+
+    </div>
+
+    <h2>📚 Book Catalog</h2>
+
+    <div id="books" class="grid"></div>
+
+</section>
+
+
+<!-- BOOKS -->
+<section id="booksSection" class="section">
+
+    <h2>📚 Books</h2>
+
+    <p>All books available in the library.</p>
+
+    <div id="booksList" class="grid"></div>
+
+</section>
+
+
+<!-- USERS -->
+<section id="usersSection" class="section">
+
+    <h2>👥 Library Users</h2>
+
+    <div id="users" class="table-container"></div>
+
+</section>
+
+
+<!-- ISSUE BOOK -->
+<section id="issueSection" class="section">
+
+    <h2>📖 Issue Book</h2>
+
+    <div class="form-card">
+
+        <label for="issueBookId">Book ID</label>
+        <input
+            id="issueBookId"
+            type="number"
+            placeholder="Enter book ID"
+        >
+
+        <label for="issueUserId">User ID</label>
+        <input
+            id="issueUserId"
+            type="number"
+            placeholder="Enter user ID"
+        >
+
+        <button onclick="issueBook()">Issue Book</button>
+
+        <div id="issueResult" class="result"></div>
+
+    </div>
+
+</section>
+
+
+<!-- RETURN BOOK -->
+<section id="returnSection" class="section">
+
+    <h2>↩️ Return Book</h2>
+
+    <div class="form-card">
+
+        <label for="returnTransactionId">
+            Transaction ID
+        </label>
+
+        <input
+            id="returnTransactionId"
+            type="number"
+            placeholder="Enter transaction ID"
+        >
+
+        <button onclick="returnBook()">Return Book</button>
+
+        <div id="returnResult" class="result"></div>
+
+    </div>
+
+</section>
+
+
+<!-- TRANSACTIONS -->
+<section id="transactionsSection" class="section">
+
+    <h2>📋 Transactions</h2>
+
+    <div id="transactions" class="table-container"></div>
+
+</section>
+```
+
+</main>
+
+<script src="js/app.js"></script>
+
+</body>
+</html>
